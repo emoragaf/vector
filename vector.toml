@@ -1,0 +1,15 @@
+# Vector's API for introspection
+[api]
+enabled = true
+address = "127.0.0.1:8686"
+
+[sources.metrics]
+type = "socket" # required
+address = "0.0.0.0:8886" # required, required when mode = `tcp` or `udp`
+max_length = 102400 # optional, default, bytes
+mode = "tcp" # required
+
+[sinks.out]
+type = "console"
+inputs = [ "metrics" ]
+encoding.codec = "json"
